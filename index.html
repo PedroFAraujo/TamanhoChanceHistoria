@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+        <title>Tamanho da Chance</title>
+    </head>
+    <body class="p-3 mb-2 bg-dark text-white">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col mb-5">
+                    <nav class="navbar fixed-top bg-black border-bottom border-bottom-dark" data-bs-theme="black">
+                        <div class="container-fluid">
+                            <a class="navbar-brand text-light" href="index.html">Tamanho da Chance</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <form METHOD="POST" action="">
+                <div class="row">
+                    <div class="col">
+                        <div class="mt-5">
+                            <label for="estado" class="form-label">Resiliência:</label>
+                            <select class="form-select" name="resiliencia" id="resiliencia" aria-label="Default select example">
+                                <option value="30">30</option>
+                                <option value="60">60</option>
+                                <option value="90">90</option>
+                                <option value="120">120</option>
+                                <option value="150">150</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mt-5">
+                            <label for="estado" class="form-label">Inteligência:</label>
+                            <select class="form-select" name="inteligencia" autocomplete="off" id="inteligencia" aria-label="Default select example">
+                                <option value="30">30</option>
+                                <option value="60">60</option>
+                                <option value="90">90</option>
+                                <option value="120">120</option>
+                                <option value="150">150</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mt-5">
+                            <label for="estado" class="form-label">Curso:</label>
+                            <select class="form-select" name="curso" autocomplete="off" id="curso" aria-label="Default select example">
+                                <option value="20">Licenciaturas em Geral</option>
+                                <option value="40">Letras/Pedagogia/História/GEO/ED. FÍSICA</option>
+                                <option value="50">MAT/Física/Química/Biologia/Ciências Sociais/Logística</option>
+                                <option value="80">Áudio Visual/Rádio & TV/COME</option>
+                                <option value="100">Publicidade/ADM/Design/Mkt/Gestão</option>
+                                <option value="120">Economia/Contábeis</option>
+                                <option value="140">Farmácia/FISIO/Jornalismo/Computação/TI/ADS</option>
+                                <option value="160">Psicologia/RI/Direito/Arquitetura</option>
+                                <option value="180">Biomed/VET/Engenharias/Odonto</option>
+                                <option value="200">Medicina</option>
+                                <option value="100">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mt-5">
+                            <label for="estado" class="form-label">Instituições de ensino:</label>
+                            <select class="form-select" name="faculdade" autocomplete="off" id="faculdade" aria-label="Default select example">
+                                <option value="20">Instituições privadas pouco renomadas c/ bolsa de 50%</option>
+                                <option value="40">Instituições privadas pouco renomadas c/ bolsa de 100%</option>
+                                <option value="60">Instituições privadas médio renomadas c/ bolsa de 50% </option>
+                                <option value="80">Instituições privadas médio renomadas c/ bolsa de 100%</option>
+                                <option value="100">FATEC/Instituto Federal-SP/Demais institutos federais/UFABC</option>
+                                <option value="120">PUC e Mackenzie 50%/FGV/demais instituições privadas renomadas (FAAP/Belas Artes...) e demais universidade estaduais</option>
+                                <option value="140">UNIFESP/UNESP/UNB/UERJ e demais federais/PUC e Mackenzie 100%</option>
+                                <option value="160">UFMG/UFRGS/FEDERAL de Sergipe, PE, RJ</option>
+                                <option value="180">Unicamp/ITA/IME</option>
+                                <option value="200">USP</option>
+                                <option value="100">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="d-grid gap-2 mt-5">
+                            <button onclick="calcular()" id="botao" class="btn btn-light shadow-lg" type="button">Calcular</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-5">
+                        <p><span class="saidaTC"></span></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p><span class="saidaTC2"></span></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+            function calcular() {
+                //atribuindo os selects do HTML para variáveis
+                selectResiliencia = document.querySelector('#resiliencia');
+                selectInteligencia = document.querySelector('#inteligencia');
+                selectCurso = document.querySelector('#curso');
+                selectFaculdade = document.querySelector('#faculdade');
+
+                //atribuindo os valores dos selects para variáveis
+                resiliencia = Number(selectResiliencia.value);
+                inteligencia = Number(selectInteligencia.value);
+                curso = Number(selectCurso.value);
+                faculdade = Number(selectFaculdade.value);
+
+                //fazendo o calculo de X e Y com base nos valores dos selects
+                x = resiliencia + inteligencia;
+                y = curso + faculdade;
+
+                //exibindo os valores no console
+                console.log("Resiliência = " + resiliencia)
+                console.log("Inteligência = " + inteligencia)
+                console.log("Curso = " + curso)
+                console.log("Faculdade = " + faculdade)
+                console.log("X = " + x);
+                console.log("Y = " + y);
+
+                if(x > y){
+                    document.querySelector('.saidaTC').textContent = "X > Y.";
+                    document.querySelector('.saidaTC2').textContent = "Você já está pronto ou almeje conquistas maiores.";
+                }else if(x < y){
+                    //laço de repetição para ver a distância entre X e Y (tamanho da chance)
+                    var tc = 0;
+                    var i = x+20;
+                    for(i; i<=y-20; i+=20){
+                        console.log(i);
+                        tc+=1;
+                    }
+
+                    //estrutura de decisão para verificar o texto do tamanho da chance
+                    var textTC = "";
+                    if(tc>=15){
+                        textTC = "Péssimo";
+                    }else if(tc>=12 && tc<=14){
+                        textTC = "Insuficiente";
+                    }else if(tc>=8 && tc<=11){
+                        textTC = "Razoável";
+                    }else if(tc>=5 && tc<=7){
+                        textTC = "Bom";
+                    }else if(tc<=4){
+                        textTC = "Muito Bom";
+                    }
+
+                    //exibindo o tamanho da chance no console e na pagina web
+                    console.log("Tamanho da Chance: " + tc + ", " + textTC);
+                    document.querySelector('.saidaTC').textContent = "X = " + x + "   Y = " + y;
+                    document.querySelector('.saidaTC2').textContent = "Tamanho da Chance: " + tc + ", " + textTC;
+                }
+                
+            }
+
+        </script>
+    </body>
+</html>
