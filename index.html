@@ -140,8 +140,9 @@
                 }else if(x < y){
                     //laço de repetição para ver a distância entre X e Y (tamanho da chance)
                     var tc = 0;
-                    var i = x;
-                    for(i; i<=y-20; i+=20){
+                    var i = x+20;
+                    var limite = y-20;
+                    for(i; i<=limite; i+=20){
                         console.log(i);
                         tc+=1;
                     }
